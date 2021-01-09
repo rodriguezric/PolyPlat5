@@ -1,0 +1,194 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/Level3.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Badguy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Level3Lava.gd" type="Script" id=5]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/EscQuit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/MovingBadguy.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="Level3" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 56 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="Floors" type="Node" parent="."]
+
+[node name="Floor" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 32, 96 )
+scale = Vector2( 10.04, 1 )
+
+[node name="Floor5" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 32, 8 )
+scale = Vector2( 10.04, 1 )
+
+[node name="Floor9" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 304, -72 )
+scale = Vector2( 10.04, 1 )
+
+[node name="Floor10" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 656, -120 )
+scale = Vector2( 10.04, 1 )
+
+[node name="Floor11" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 464.64, -40 )
+scale = Vector2( 1.96, 1 )
+
+[node name="Floor14" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 575.36, -64 )
+scale = Vector2( 1.96, 1 )
+
+[node name="Floor12" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 496, -72 )
+scale = Vector2( 1.96, 1 )
+
+[node name="Floor13" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 544, -88 )
+scale = Vector2( 1.96, 1 )
+
+[node name="Floor15" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 606.72, -96 )
+scale = Vector2( 1.96, 1 )
+
+[node name="Floor2" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 216, 80 )
+scale = Vector2( 1, 1 )
+
+[node name="Floor3" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 264, 48 )
+scale = Vector2( 1, 1 )
+
+[node name="Floor4" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 216, 24 )
+scale = Vector2( 1, 1 )
+
+[node name="Floor6" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 216, -24 )
+scale = Vector2( 1, 1 )
+
+[node name="Floor7" parent="Floors" instance=ExtResource( 4 )]
+position = Vector2( 264, -56 )
+scale = Vector2( 1, 1 )
+
+[node name="Lava" parent="." instance=ExtResource( 2 )]
+position = Vector2( -96, 168 )
+scale = Vector2( 100.48, 1 )
+script = ExtResource( 5 )
+speed = 20
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+
+[node name="EscQuit" parent="." instance=ExtResource( 7 )]
+
+[node name="Badguy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, -8 )
+script = ExtResource( 8 )
+speed = 100
+
+[node name="Timer" type="Timer" parent="Badguy"]
+autostart = true
+
+[node name="Badguy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 320, -88 )
+script = ExtResource( 8 )
+speed = 100
+actions = [ "wait", "right", "wait", "left" ]
+
+[node name="Timer" type="Timer" parent="Badguy2"]
+autostart = true
+
+[node name="Badguy3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 472, -56 )
+script = ExtResource( 8 )
+speed = 200
+actions = [ "wait", "up", "down" ]
+
+[node name="Timer" type="Timer" parent="Badguy3"]
+autostart = true
+
+[node name="Badguy4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 584, -80 )
+script = ExtResource( 8 )
+speed = 200
+actions = [ "wait", "up", "down" ]
+
+[node name="Timer" type="Timer" parent="Badguy4"]
+autostart = true
+
+[node name="Badguy5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 656, -136 )
+script = ExtResource( 8 )
+speed = 200
+actions = [ "wait", "up", "down", "wait", "wait", "wait", "wait", "wait" ]
+
+[node name="Timer" type="Timer" parent="Badguy5"]
+autostart = true
+
+[node name="Badguy6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 680, -136 )
+script = ExtResource( 8 )
+speed = 200
+actions = [ "wait", "wait", "up", "down", "wait", "wait", "wait", "wait" ]
+
+[node name="Timer" type="Timer" parent="Badguy6"]
+autostart = true
+
+[node name="Badguy7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 704, -136 )
+script = ExtResource( 8 )
+speed = 200
+actions = [ "wait", "wait", "wait", "up", "down", "wait", "wait", "wait" ]
+
+[node name="Timer" type="Timer" parent="Badguy7"]
+autostart = true
+
+[node name="Badguy8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 728, -136 )
+script = ExtResource( 8 )
+speed = 200
+actions = [ "wait", "wait", "wait", "wait", "up", "down", "wait", "wait" ]
+
+[node name="Timer" type="Timer" parent="Badguy8"]
+autostart = true
+
+[node name="Win" type="Area2D" parent="."]
+position = Vector2( 808, -144 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Win"]
+color = Color( 0.0392157, 0.380392, 0.972549, 1 )
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+[connection signal="body_entered" from="Lava" to="." method="_on_Lava_body_entered"]
+[connection signal="quit" from="UI" to="." method="_on_UI_quit"]
+[connection signal="try_again" from="UI" to="." method="_on_UI_try_again"]
+[connection signal="body_entered" from="Badguy" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy/Timer" to="Badguy" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy2" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy2/Timer" to="Badguy2" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy3" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy3/Timer" to="Badguy3" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy4" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy4/Timer" to="Badguy4" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy5" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy5/Timer" to="Badguy5" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy6" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy6/Timer" to="Badguy6" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy7" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy7/Timer" to="Badguy7" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Badguy8" to="." method="_on_Badguy_body_entered"]
+[connection signal="timeout" from="Badguy8/Timer" to="Badguy8" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Win" to="." method="_on_Win_body_entered"]

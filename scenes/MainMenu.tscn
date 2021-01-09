@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/EscQuit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 148.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+margin_left = 206.0
+margin_top = 67.0
+margin_right = 306.0
+margin_bottom = 81.0
+text = "P O L Y P LA T 5"
+align = 1
+valign = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 152.0
+margin_right = 512.0
+margin_bottom = 300.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer2"]
+margin_left = 231.0
+margin_top = 52.0
+margin_right = 281.0
+margin_bottom = 96.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 50.0
+margin_bottom = 20.0
+text = "START"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 24.0
+margin_right = 50.0
+margin_bottom = 44.0
+text = "QUIT"
+
+[node name="EscQuit" parent="." instance=ExtResource( 1 )]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
